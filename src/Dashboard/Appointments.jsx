@@ -17,7 +17,7 @@ const Appointments = () => {
     queryKey: ["appointments"],
     queryFn: async () => {
       const res = await axios.get(
-        "http://localhost:3000/appointment"
+        "https://drdebasish-server.onrender.com/appointment"
       );
       return res.data;
     },
@@ -26,7 +26,7 @@ const Appointments = () => {
   const handleStatus = async (id, status) => {
     try {
       const res = await axios.patch(
-        `http://localhost:3000/appointment/${id}`,
+        `https://drdebasish-server.onrender.com/appointment/${id}`,
         { status }
       );
 

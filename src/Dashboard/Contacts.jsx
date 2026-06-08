@@ -14,7 +14,7 @@ const Contacts = () => {
   const { data: contacts = [], isLoading } = useQuery({
     queryKey: ["contacts_ok"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/contacts");
+      const res = await axios.get("https://drdebasish-server.onrender.com/contacts");
       return res.data;
     },
   });

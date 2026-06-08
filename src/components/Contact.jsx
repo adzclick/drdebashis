@@ -22,7 +22,7 @@ export default function ContactSection() {
     console.log(data);
 
  // API Call Here
-    axios.post('http://localhost:3000/contacts',data)
+    axios.post('https://drdebasish-server.onrender.com/contacts',data)
     .then(res=>{
       console.log(res.data)
       if(res.data.insertedId){

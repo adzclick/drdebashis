@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import {
   MapPin,
@@ -17,12 +18,13 @@ export default function BookAppointment() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm();
-
+const today = new Date().toISOString().split("T")[0];
+const dateRef = useRef(null);
   const onSubmit = async (data) => {
     console.log(data);
 
     // API Call Here
-    axios.post('http://localhost:3000/appointment',data)
+    axios.post('https://drdebasish-server.onrender.com/appointment',data)
     .then(res=>{
       console.log(res.data)
       if(res.data.insertedId){
@@ -173,33 +175,50 @@ export default function BookAppointment() {
                 register={register("email")}
               />
 
-              {/* Date */}
-              <div>
-                <label className="block mb-2 font-medium text-slate-700">
-                  Preferred Date
-                </label>
+             <div>
+  <label className="block mb-2 font-medium text-slate-700">
+    Preferred Date *
+  </label>
 
-                <div className="relative">
-                  <Calendar
-                    size={18}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500"
-                  />
+  <div className="relative">
+    <input
+      type="date"
+      min={today}
+      className="
+        w-full
+        h-12
+        rounded-xl
+        border
+        border-slate-300
+        px-4
+        pr-12
+        outline-none
+        focus:ring-4
+        focus:ring-blue-100
+        focus:border-blue-500
+        [&::-webkit-calendar-picker-indicator]:opacity-0
+        [&::-webkit-calendar-picker-indicator]:absolute
+        [&::-webkit-calendar-picker-indicator]:w-full
+        [&::-webkit-calendar-picker-indicator]:h-full
+        [&::-webkit-calendar-picker-indicator]:cursor-pointer
+      "
+      {...register("date", {
+        required: "Select date",
+      })}
+    />
 
-                  <input
-                    type="date"
-                    className="w-full h-12 rounded-xl border border-slate-300 px-4 focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none"
-                    {...register("date", {
-                      required: "Select date",
-                    })}
-                  />
-                </div>
+    <Calendar
+      size={20}
+      className="absolute right-4 top-1/2 -translate-y-1/2 text-blue-600 pointer-events-none"
+    />
+  </div>
 
-                {errors.date && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.date.message}
-                  </p>
-                )}
-              </div>
+  {errors.date && (
+    <p className="text-red-500 text-sm mt-1">
+      {errors.date.message}
+    </p>
+  )}
+</div>
 
               {/* Concern */}
               <div>
