@@ -15,10 +15,12 @@ const Appointments = () => {
     isLoading,
   } = useQuery({
     queryKey: ["appointments"],
+
     queryFn: async () => {
       const res = await axios.get(
         "https://drdebasish-server.onrender.com/appointment"
       );
+
       return res.data;
     },
   });
@@ -41,30 +43,31 @@ const Appointments = () => {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-[400px]">
-        <span className="loading loading-spinner loading-lg text-cyan-600"></span>
+        <span className="loading loading-spinner loading-lg text-pink-600"></span>
       </div>
     );
   }
 
   return (
-    <div className="p-6">
-      {/* Header */}
+    <div className="min-h-screen rounded-3xl bg-gradient-to-br from-purple-50 via-pink-50 to-fuchsia-50 p-6">
+
+      {/* HEADER */}
       <div className="mb-8">
-        <h2 className="text-3xl font-bold text-slate-800">
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-700 via-fuchsia-600 to-pink-600 bg-clip-text text-transparent">
           Appointment Requests
         </h2>
 
-        <p className="text-slate-500 mt-2">
+        <p className="mt-2 text-slate-500">
           Manage all patient appointment requests
         </p>
       </div>
 
-      {/* Stats */}
-      <div className="grid md:grid-cols-3 gap-5 mb-8">
+      {/* STATS */}
+      <div className="grid gap-5 mb-8 md:grid-cols-3">
         <StatCard
           title="Total Appointments"
           value={appointments.length}
-          color="blue"
+          color="purple"
         />
 
         <StatCard
@@ -82,19 +85,35 @@ const Appointments = () => {
           value={
             appointments.filter(
               (item) =>
-                item.status === "pending" ||
-                !item.status
+                item.status === "pending" || !item.status
             ).length
           }
           color="yellow"
         />
       </div>
 
-      {/* Table */}
-      <div className="overflow-x-auto rounded-3xl bg-white shadow-xl border border-slate-100">
+      {/* TABLE */}
+      <div
+        className="
+        overflow-x-auto
+        rounded-3xl
+        bg-white
+        shadow-2xl
+        border
+        border-pink-100
+      "
+      >
         <table className="w-full">
           <thead>
-            <tr className="bg-gradient-to-r from-cyan-700 to-blue-800 text-white">
+            <tr
+              className="
+              bg-gradient-to-r
+              from-purple-900
+              via-fuchsia-800
+              to-pink-700
+              text-white
+            "
+            >
               <th className="px-5 py-4 text-left">
                 Patient
               </th>
@@ -125,16 +144,21 @@ const Appointments = () => {
             {appointments.map((appointment) => (
               <tr
                 key={appointment._id}
-                className="border-b hover:bg-slate-50 transition"
+                className="
+                border-b
+                hover:bg-pink-50
+                transition-all
+                duration-300
+              "
               >
-                {/* Patient */}
+                {/* PATIENT */}
                 <td className="px-5 py-5">
                   <h3 className="font-semibold text-slate-800">
                     {appointment.name}
                   </h3>
                 </td>
 
-                {/* Contact */}
+                {/* CONTACT */}
                 <td className="px-5 py-5">
                   <div className="space-y-1">
                     <p className="flex items-center gap-2 text-sm text-slate-600">
@@ -149,43 +173,42 @@ const Appointments = () => {
                   </div>
                 </td>
 
-                {/* Date */}
+                {/* DATE */}
                 <td className="px-5 py-5">
                   {appointment.date}
                 </td>
 
-                {/* Concern */}
+                {/* CONCERN */}
                 <td className="px-5 py-5">
                   {appointment.concern}
                 </td>
 
-                {/* Status */}
+                {/* STATUS */}
                 <td className="px-5 py-5">
-                  {appointment.status ===
-                  "confirmed" ? (
-                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium">
+                  {appointment.status === "confirmed" ? (
+                    <span className="inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2 text-sm font-medium text-green-700">
                       <CheckCircle size={16} />
                       Confirmed
                     </span>
-                  ) : appointment.status ===
-                    "rejected" ? (
-                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-100 text-red-700 text-sm font-medium">
+                  ) : appointment.status === "rejected" ? (
+                    <span className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-medium text-red-700">
                       <XCircle size={16} />
                       Rejected
                     </span>
                   ) : (
-                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-100 text-yellow-700 text-sm font-medium">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-yellow-100 px-4 py-2 text-sm font-medium text-yellow-700">
                       <Clock3 size={16} />
                       Pending
                     </span>
                   )}
                 </td>
 
-                {/* Action */}
+                {/* ACTION */}
                 <td className="px-5 py-5">
-                  {(appointment.status === "pending" ||
+                                    {(appointment.status === "pending" ||
                     !appointment.status) ? (
                     <div className="flex justify-center gap-2">
+
                       <button
                         onClick={() =>
                           handleStatus(
@@ -193,7 +216,19 @@ const Appointments = () => {
                             "confirmed"
                           )
                         }
-                        className="px-4 py-2 rounded-xl bg-green-600 text-white font-medium hover:bg-green-700 transition"
+                        className="
+                        px-4
+                        py-2
+                        rounded-xl
+                        bg-gradient-to-r
+                        from-purple-700
+                        via-fuchsia-600
+                        to-pink-600
+                        text-white
+                        font-medium
+                        hover:opacity-90
+                        transition-all
+                      "
                       >
                         Confirm
                       </button>
@@ -205,25 +240,65 @@ const Appointments = () => {
                             "rejected"
                           )
                         }
-                        className="px-4 py-2 rounded-xl bg-red-600 text-white font-medium hover:bg-red-700 transition"
+                        className="
+                        px-4
+                        py-2
+                        rounded-xl
+                        bg-gradient-to-r
+                        from-pink-600
+                        to-rose-600
+                        text-white
+                        font-medium
+                        hover:opacity-90
+                        transition-all
+                      "
                       >
                         Reject
                       </button>
+
                     </div>
                   ) : appointment.status ===
                     "confirmed" ? (
                     <div className="flex justify-center">
-                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 font-medium">
+
+                      <span
+                        className="
+                        inline-flex
+                        items-center
+                        gap-2
+                        rounded-full
+                        bg-green-100
+                        px-4
+                        py-2
+                        font-medium
+                        text-green-700
+                      "
+                      >
                         <CheckCircle size={16} />
                         Confirmed
                       </span>
+
                     </div>
                   ) : (
                     <div className="flex justify-center">
-                      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-100 text-red-700 font-medium">
+
+                      <span
+                        className="
+                        inline-flex
+                        items-center
+                        gap-2
+                        rounded-full
+                        bg-red-100
+                        px-4
+                        py-2
+                        font-medium
+                        text-red-700
+                      "
+                      >
                         <XCircle size={16} />
                         Rejected
                       </span>
+
                     </div>
                   )}
                 </td>
@@ -234,7 +309,11 @@ const Appointments = () => {
               <tr>
                 <td
                   colSpan={6}
-                  className="text-center py-10 text-slate-500"
+                  className="
+                  py-10
+                  text-center
+                  text-slate-500
+                "
                 >
                   No Appointments Found
                 </td>
@@ -247,26 +326,47 @@ const Appointments = () => {
   );
 };
 
+/* ================= STAT CARD ================= */
+
 const StatCard = ({
   title,
   value,
   color,
 }) => {
+
   const colors = {
-    blue: "from-cyan-600 to-blue-700",
-    green: "from-green-500 to-green-700",
-    yellow: "from-yellow-500 to-orange-500",
+
+    purple:
+      "from-purple-900 via-fuchsia-800 to-pink-700",
+
+    green:
+      "from-purple-800 via-fuchsia-700 to-pink-600",
+
+    yellow:
+      "from-purple-700 via-fuchsia-600 to-pink-500",
+
   };
 
   return (
     <div
-      className={`bg-gradient-to-r ${colors[color]} text-white rounded-3xl p-6 shadow-lg`}
+      className={`
+      bg-gradient-to-r
+      ${colors[color]}
+      text-white
+      rounded-3xl
+      p-6
+      shadow-2xl
+      hover:-translate-y-1
+      hover:scale-[1.02]
+      transition-all
+      duration-300
+    `}
     >
       <p className="text-sm opacity-80">
         {title}
       </p>
 
-      <h2 className="text-3xl font-bold mt-2">
+      <h2 className="mt-2 text-4xl font-black">
         {value}
       </h2>
     </div>

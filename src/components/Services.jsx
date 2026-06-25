@@ -8,6 +8,7 @@ import {
   BadgeCheck,
 } from "lucide-react";
 
+
 const features = [
   {
     icon: Award,
@@ -41,98 +42,444 @@ const features = [
   },
 ];
 
+
+
 export default function WhyChooseUs() {
-  return (
-    <section className="relative py-28 overflow-hidden bg-gradient-to-br from-cyan-400/10 to-transparent">
 
-      {/* background glow */}
-      <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-cyan-300/20 blur-[140px] rounded-full" />
 
-      <div className="container mx-auto px-6 relative z-10">
+return (
 
-        {/* HEADER */}
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <span className="px-4 py-2 text-xs uppercase tracking-[3px] bg-cyan-500/10 text-cyan-700 rounded-full">
-            Why Choose Us
-          </span>
+<section
 
-          <h2 className="mt-5 text-4xl md:text-5xl font-bold text-slate-900">
-            Why Choose Dr. Debashis Adhikary
-          </h2>
+className="
+relative
+overflow-hidden
+py-28
+bg-gradient-to-br
+from-slate-50
+via-purple-50
+to-pink-50
+"
 
-          <p className="mt-4 text-slate-600">
-            Premium orthopedic care with trust, precision, and excellence.
-          </p>
-        </div>
+>
 
-        {/* TIMELINE */}
-        <div className="relative max-w-4xl mx-auto">
 
-          {/* CENTER LINE */}
-          <div className="absolute left-1/2 top-0 h-full w-[2px] bg-cyan-200/40" />
 
-          <div className="space-y-16">
+{/* Background Glow */}
 
-            {features.map((item, i) => {
-              const Icon = item.icon;
-              const isLeft = i % 2 === 0;
 
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className={`relative flex items-center ${
-                    isLeft ? "justify-start" : "justify-end"
-                  }`}
-                >
+<div
 
-                  {/* DOT */}
-                  <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-cyan-500 shadow-[0_0_20px_rgba(34,211,238,0.8)]" />
+className="
+absolute
+top-20
+left-20
+w-96
+h-96
+rounded-full
+bg-purple-500/10
+blur-[140px]
+"
 
-                  {/* CARD */}
-                  <div
-                    className={`group w-[45%] p-6 rounded-3xl
-                    bg-white/70 backdrop-blur-xl
-                    border border-white/40
-                    shadow-lg hover:shadow-cyan-200/40
-                    transition-all duration-500
-                    ${isLeft ? "mr-auto text-right" : "ml-auto text-left"}`}
-                  >
+/>
 
-                    {/* ICON */}
-                    <div
-                      className={`w-12 h-12 flex items-center justify-center rounded-2xl
-                      bg-gradient-to-br from-cyan-500 to-blue-600 text-white
-                      mb-4 transition group-hover:rotate-6
-                      ${isLeft ? "ml-auto" : "mr-auto"}`}
-                    >
-                      <Icon size={20} />
-                    </div>
 
-                    {/* TITLE */}
-                    <h3 className="text-lg font-bold text-slate-900">
-                      {item.title}
-                    </h3>
 
-                    {/* DESC */}
-                    <p className="mt-2 text-sm text-slate-600">
-                      {item.desc}
-                    </p>
+<div
 
-                    {/* LINE */}
-                    <div className="mt-4 h-[2px] w-0 bg-gradient-to-r from-cyan-500 to-blue-500 group-hover:w-20 transition-all duration-500" />
-                  </div>
+className="
+absolute
+bottom-20
+right-20
+w-96
+h-96
+rounded-full
+bg-pink-500/10
+blur-[140px]
+"
 
-                </motion.div>
-              );
-            })}
+/>
 
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+
+
+
+
+
+<div className="
+max-w-7xl
+mx-auto
+px-6
+relative
+z-10
+">
+
+
+
+
+
+
+{/* Header */}
+
+
+<div className="
+text-center
+max-w-3xl
+mx-auto
+mb-20
+">
+
+
+
+<span
+
+className="
+inline-block
+px-5
+py-2
+rounded-full
+bg-pink-100
+text-pink-600
+text-sm
+font-bold
+tracking-widest
+"
+
+>
+
+WHY CHOOSE US
+
+</span>
+
+
+
+
+
+<h2
+
+className="
+mt-6
+text-4xl
+md:text-5xl
+font-black
+text-slate-900
+"
+
+>
+
+Why Choose Dr. Debashis Adhikary
+
+</h2>
+
+
+
+
+
+<p
+
+className="
+mt-5
+text-lg
+text-slate-600
+"
+
+>
+
+Combining experience, innovation and compassionate care to
+deliver exceptional orthopedic treatment and patient outcomes.
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+{/* Timeline */}
+
+
+<div className="
+relative
+max-w-5xl
+mx-auto
+">
+
+
+
+
+
+{/* Center Line */}
+
+
+<div
+
+className="
+absolute
+left-1/2
+top-0
+h-full
+w-[3px]
+bg-gradient-to-b
+from-purple-500
+via-pink-500
+to-purple-500
+hidden
+md:block
+"
+
+/>
+
+
+
+
+
+<div className="space-y-12">
+
+
+
+{
+
+features.map((item,i)=>{
+
+
+const Icon=item.icon;
+
+const isLeft=i%2===0;
+
+
+
+return(
+
+
+
+<motion.div
+
+key={i}
+
+initial={{
+opacity:0,
+y:40
+}}
+
+whileInView={{
+opacity:1,
+y:0
+}}
+
+viewport={{
+once:true
+}}
+
+transition={{
+duration:0.5,
+delay:i*0.1
+}}
+
+className={`relative flex ${
+isLeft
+?
+"justify-start"
+:
+"justify-end"
+}`}
+
+>
+
+
+
+
+{/* Dot */}
+
+
+<div
+
+className="
+hidden
+md:block
+absolute
+left-1/2
+-translate-x-1/2
+w-5
+h-5
+rounded-full
+bg-gradient-to-r
+from-purple-600
+to-pink-500
+shadow-[0_0_25px_rgba(236,72,153,0.8)]
+"
+
+/>
+
+
+
+
+
+
+
+{/* Card */}
+
+
+<div
+
+className={`
+group
+w-full
+md:w-[44%]
+bg-white
+rounded-[30px]
+border
+border-pink-100
+p-8
+shadow-lg
+hover:shadow-2xl
+transition-all
+duration-500
+hover:-translate-y-2
+${isLeft ? "md:text-right":"md:text-left"}
+`}
+
+>
+
+
+
+
+{/* Icon */}
+
+
+<div
+
+className={`
+w-14
+h-14
+rounded-2xl
+flex
+items-center
+justify-center
+bg-gradient-to-r
+from-purple-600
+to-pink-500
+text-white
+shadow-xl
+transition-all
+duration-500
+group-hover:rotate-6
+group-hover:scale-110
+${isLeft ? "md:ml-auto":"md:mr-auto"}
+`}
+
+>
+
+
+<Icon size={24}/>
+
+
+</div>
+
+
+
+
+
+
+
+{/* Title */}
+
+
+<h3 className="
+mt-5
+text-xl
+font-bold
+text-slate-900
+">
+
+{item.title}
+
+</h3>
+
+
+
+
+
+{/* Description */}
+
+
+<p className="
+mt-3
+text-slate-600
+leading-7
+">
+
+{item.desc}
+
+</p>
+
+
+
+
+
+
+{/* Bottom Accent */}
+
+
+<div
+
+className={`
+mt-5
+h-1
+rounded-full
+bg-gradient-to-r
+from-purple-600
+to-pink-500
+w-0
+group-hover:w-24
+transition-all
+duration-500
+${isLeft ? "md:ml-auto":""}
+`}
+
+/>
+
+
+
+
+</div>
+
+
+
+</motion.div>
+
+
+)
+
+
+})
+
+
+}
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+);
+
+
 }

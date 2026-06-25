@@ -14,8 +14,10 @@ import Swal from "sweetalert2";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-const navigate=useNavigate()
-const {userLogin}=use(AuthContext)
+
+  const navigate = useNavigate();
+  const { userLogin } = use(AuthContext);
+
   const {
     register,
     handleSubmit,
@@ -23,38 +25,43 @@ const {userLogin}=use(AuthContext)
   } = useForm();
 
   const onSubmit = (data) => {
-  console.log(data);
+    userLogin(data.email, data.password)
+      .then((result) => {
+        console.log(result.user);
 
-  userLogin(data.email, data.password)
-    .then((result) => {
-      console.log(result.user);
-       Swal.fire({
-          title: 'Login Successful!',
-          text: 'Welcome back Doctor',
-          icon: 'success',
-          confirmButtonText: 'Continue',
+        Swal.fire({
+          title: "Login Successful!",
+          text: "Welcome back Doctor",
+          icon: "success",
+          confirmButtonText: "Continue",
         });
 
-      navigate("/");
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
-};
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+
+        Swal.fire({
+          title: "Login Failed",
+          text: error.message,
+          icon: "error",
+        });
+      });
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-cyan-50 to-blue-100 flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-8">
       <div className="w-full max-w-6xl bg-white rounded-[32px] shadow-2xl overflow-hidden grid lg:grid-cols-2">
         
         {/* LEFT SIDE */}
-        <div className="hidden lg:flex flex-col justify-center bg-gradient-to-br from-cyan-700 via-blue-800 to-slate-900 p-12 relative overflow-hidden">
+        <div className="hidden lg:flex flex-col justify-center bg-gradient-to-br from-purple-800 via-purple-900 to-black p-12 relative overflow-hidden">
           
-          <div className="absolute top-0 left-0 w-72 h-72 bg-cyan-400/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 left-0 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
 
-          <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-72 h-72 bg-fuchsia-500/20 rounded-full blur-3xl"></div>
 
           <div className="relative z-10">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-cyan-100 backdrop-blur border border-white/10">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-purple-200 backdrop-blur border border-white/10">
               <FaShieldAlt />
               Secure Medical Portal
             </span>
@@ -62,28 +69,31 @@ const {userLogin}=use(AuthContext)
             <h1 className="mt-8 text-5xl font-bold text-white leading-tight">
               Welcome Back,
               <br />
-              <span className="text-cyan-300">Doctor</span>
+              <span className="text-purple-300">Doctor</span>
             </h1>
 
             <p className="mt-6 text-slate-200 text-lg leading-relaxed">
-              Access appointments, patient records, reports, prescriptions and
-              your complete healthcare dashboard securely.
+              Access appointments, patient records, reports,
+              prescriptions and your complete healthcare
+              dashboard securely.
             </p>
 
             <div className="mt-12 space-y-5">
-              <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-5">
+              <div className="bg-white/10 backdrop-blur-md border border-purple-500/20 rounded-2xl p-5">
                 <h3 className="text-white font-semibold text-lg">
                   Patient Management
                 </h3>
+
                 <p className="text-slate-300 mt-2 text-sm">
                   View and manage patient records efficiently.
                 </p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-5">
+              <div className="bg-white/10 backdrop-blur-md border border-purple-500/20 rounded-2xl p-5">
                 <h3 className="text-white font-semibold text-lg">
                   Appointment Scheduling
                 </h3>
+
                 <p className="text-slate-300 mt-2 text-sm">
                   Track and manage all appointments in one place.
                 </p>
@@ -95,10 +105,10 @@ const {userLogin}=use(AuthContext)
         {/* RIGHT SIDE */}
         <div className="flex items-center justify-center p-8 md:p-14">
           <div className="w-full max-w-md">
-            
+
             {/* LOGO */}
             <div className="flex justify-center">
-              <div className="w-24 h-24 rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg">
+              <div className="w-24 h-24 rounded-3xl bg-gradient-to-r from-purple-600 to-fuchsia-600 flex items-center justify-center shadow-lg">
                 <FaUserMd className="text-white text-4xl" />
               </div>
             </div>
@@ -130,7 +140,7 @@ const {userLogin}=use(AuthContext)
                     {...register("email", {
                       required: "Email is required",
                     })}
-                    className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 outline-none transition"
+                    className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none transition"
                   />
                 </div>
 
@@ -161,7 +171,7 @@ const {userLogin}=use(AuthContext)
                           "Password must be at least 6 characters",
                       },
                     })}
-                    className="w-full pl-12 pr-12 py-4 rounded-2xl border border-slate-200 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 outline-none transition"
+                    className="w-full pl-12 pr-12 py-4 rounded-2xl border border-slate-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none transition"
                   />
 
                   <button
@@ -191,14 +201,14 @@ const {userLogin}=use(AuthContext)
                 <label className="flex items-center gap-2 text-sm text-slate-600">
                   <input
                     type="checkbox"
-                    className="accent-cyan-600"
+                    className="accent-purple-600"
                   />
                   Remember me
                 </label>
 
                 <button
                   type="button"
-                  className="text-cyan-600 hover:text-cyan-700 text-sm font-medium"
+                  className="text-purple-600 hover:text-purple-700 text-sm font-medium"
                 >
                   Forgot Password?
                 </button>
@@ -208,7 +218,7 @@ const {userLogin}=use(AuthContext)
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-lg shadow-lg hover:scale-[1.02] transition-all duration-300"
+                className="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-700 via-purple-600 to-fuchsia-600 text-white font-semibold text-lg shadow-[0_10px_40px_rgba(147,51,234,0.35)] hover:shadow-[0_15px_50px_rgba(147,51,234,0.45)] hover:scale-[1.02] transition-all duration-300"
               >
                 {isSubmitting ? "Signing In..." : "Login"}
               </button>

@@ -7,7 +7,7 @@ import BookAppointment from '../components/BookAppointment';
 import Reviews from '../components/Reviews';
 import FAQ from '../components/FAQ';
 import ContactSection from '../components/Contact';
-import Locationn from '../components/locationn';
+// import Locationn from '../components/locationn';
 
 const Home = () => {
     return (
@@ -20,7 +20,7 @@ const Home = () => {
      <Reviews></Reviews>
      <FAQ></FAQ>
      <ContactSection></ContactSection>
-   <Locationn></Locationn>
+   {/* <Locationn></Locationn> */}
         </div>
     );
 };

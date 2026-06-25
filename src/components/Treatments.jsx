@@ -10,6 +10,7 @@ import {
   Accessibility,
 } from "lucide-react";
 
+
 const services = [
   {
     title: "Joint Replacement Surgery",
@@ -53,77 +54,385 @@ const services = [
   },
 ];
 
+
+
 const Treatments = () => {
-  return (
-    <section className="relative overflow-hidden bg-slate-50 py-24">
-      {/* Background Glow */}
-      <div className="absolute left-0 top-0 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
-      <div className="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
 
-      <div className="container mx-auto px-6">
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-600">
-            SPECIALIZATIONS
-          </span>
+return (
 
-          <h2 className="mt-6 text-4xl font-bold text-slate-900">
-            Treatments & Procedures
-          </h2>
+<section
 
-          <p className="mx-auto mt-4 max-w-2xl text-slate-600">
-            Comprehensive orthopedic care using advanced technology and
-            minimally invasive treatment techniques.
-          </p>
-        </div>
+className="
+relative
+overflow-hidden
+py-24
+bg-gradient-to-br
+from-slate-50
+via-purple-50
+to-pink-50
+"
 
-        {/* Cards */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {services.map((service, index) => {
-            const Icon = service.icon;
+>
 
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{
-                  y: -10,
-                  scale: 1.03,
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: index * 0.08,
-                }}
-                viewport={{ once: true }}
-                className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-lg transition-all duration-500 hover:border-blue-200 hover:shadow-blue-100"
-              >
-                {/* Glow Effect */}
-                <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-blue-500/20 blur-3xl opacity-0 transition-all duration-500 group-hover:opacity-100" />
 
-                {/* Icon */}
-                <div className="relative z-10 mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
-                  <Icon size={28} />
-                </div>
+{/* Background Glow */}
 
-                {/* Content */}
-                <h3 className="mb-3 text-xl font-semibold text-slate-900">
-                  {service.title}
-                </h3>
 
-                <p className="text-sm leading-7 text-slate-600">
-                  {service.description}
-                </p>
+<div
 
-                {/* Bottom Line Animation */}
-                <div className="mt-6 h-1 w-0 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 transition-all duration-500 group-hover:w-16" />
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
+className="
+absolute
+top-0
+left-0
+w-96
+h-96
+rounded-full
+bg-purple-500/10
+blur-[120px]
+"
+
+/>
+
+
+<div
+
+className="
+absolute
+bottom-0
+right-0
+w-96
+h-96
+rounded-full
+bg-pink-500/10
+blur-[120px]
+"
+
+/>
+
+
+
+
+
+<div className="
+max-w-7xl
+mx-auto
+px-6
+">
+
+
+
+
+
+{/* Header */}
+
+
+<div className="
+text-center
+mb-20
+">
+
+
+
+<span
+
+className="
+inline-block
+px-5
+py-2
+rounded-full
+bg-pink-100
+text-pink-600
+text-sm
+font-bold
+tracking-wide
+"
+
+>
+
+SPECIALIZATIONS
+
+</span>
+
+
+
+
+<h2
+
+className="
+mt-6
+text-4xl
+md:text-5xl
+font-black
+text-slate-900
+"
+
+>
+
+Treatments & Procedures
+
+</h2>
+
+
+
+
+<p
+
+className="
+mt-5
+max-w-2xl
+mx-auto
+text-slate-600
+text-lg
+"
+
+>
+
+Comprehensive orthopedic care with advanced technology,
+minimally invasive surgery and patient-focused treatment.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+{/* Cards */}
+
+
+<div className="
+grid
+gap-8
+md:grid-cols-2
+lg:grid-cols-4
+">
+
+
+
+{
+
+services.map((service,index)=>{
+
+
+const Icon = service.icon;
+
+
+
+return(
+
+
+<motion.div
+
+
+key={index}
+
+
+initial={{
+opacity:0,
+y:40
+}}
+
+
+whileInView={{
+opacity:1,
+y:0
+}}
+
+
+viewport={{
+once:true
+}}
+
+
+transition={{
+duration:0.5,
+delay:index*0.08
+}}
+
+
+whileHover={{
+y:-10,
+scale:1.03
+}}
+
+
+className="
+group
+relative
+overflow-hidden
+rounded-[28px]
+bg-white
+border
+border-pink-100
+p-8
+shadow-lg
+hover:shadow-2xl
+transition-all
+duration-500
+"
+
+
+>
+
+
+
+{/* Hover Glow */}
+
+
+<div
+
+className="
+absolute
+-top-20
+-right-20
+w-40
+h-40
+rounded-full
+bg-pink-500/20
+blur-3xl
+opacity-0
+group-hover:opacity-100
+transition-all
+duration-500
+"
+
+/>
+
+
+
+
+
+{/* Icon */}
+
+
+<div
+
+className="
+relative
+z-10
+w-16
+h-16
+rounded-2xl
+flex
+items-center
+justify-center
+bg-gradient-to-r
+from-purple-600
+to-pink-500
+text-white
+shadow-xl
+group-hover:scale-110
+group-hover:rotate-6
+transition-all
+duration-500
+"
+
+>
+
+
+<Icon size={28}/>
+
+
+</div>
+
+
+
+
+
+{/* Content */}
+
+
+<h3
+
+className="
+mt-6
+text-xl
+font-bold
+text-slate-900
+"
+
+>
+
+{service.title}
+
+</h3>
+
+
+
+
+<p
+
+className="
+mt-3
+text-slate-600
+leading-7
+text-sm
+"
+
+>
+
+{service.description}
+
+</p>
+
+
+
+
+
+
+{/* Bottom Line */}
+
+
+<div
+
+className="
+mt-6
+h-1
+w-0
+rounded-full
+bg-gradient-to-r
+from-purple-600
+to-pink-500
+group-hover:w-20
+transition-all
+duration-500
+"
+
+/>
+
+
+
+</motion.div>
+
+
+)
+
+
+})
+
+
+}
+
+
+</div>
+
+
+
+
+</div>
+
+
+</section>
+
+
+);
+
+
 };
+
 
 export default Treatments;
