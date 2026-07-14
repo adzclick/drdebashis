@@ -31,16 +31,36 @@ const Footer = () => {
     { name: "Contact", path: "/contact" },
   ];
 
-  const treatments = [
-    "Joint Replacement",
-    "Knee Surgery",
-    "Hip Replacement",
-    "Arthritis Care",
-    "Sports Injuries",
-    "Fracture Management",
-    "Spine Care",
-  ];
-
+const treatments = [
+  {
+    name: "Joint Replacement Surgery",
+    slug: "joint-replacement",
+  },
+  {
+    name: "Knee Pain Treatment",
+    slug: "knee-pain",
+  },
+  {
+    name: "Hip Replacement",
+    slug: "hip-replacement",
+  },
+  {
+    name: "Arthritis Treatment",
+    slug: "arthritis",
+  },
+  {
+    name: "Sports Injury Treatment",
+    slug: "sports-injury",
+  },
+  {
+    name: "Fracture Management",
+    slug: "fracture",
+  },
+  {
+    name: "Spine & Back Pain Care",
+    slug: "spine",
+  },
+];
   const chambers = [
     {
       name: "Drs Ghosh & Adhikary Diagnostics",
@@ -137,13 +157,13 @@ const Footer = () => {
     {treatments.map((item, index) => (
       <li key={index}>
         <NavLink
-          to="/treatments"
-          className="inline-block cursor-pointer transition-all duration-300 hover:translate-x-2 text-slate-300"
-          onMouseEnter={(e) => (e.currentTarget.style.color = "#93C572")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "")}
-        >
-          {item}
-        </NavLink>
+  to={`/treatments/${item.slug}`}
+  className="inline-block cursor-pointer transition-all duration-300 hover:translate-x-2 text-slate-300"
+  onMouseEnter={(e) => (e.currentTarget.style.color = "#93C572")}
+  onMouseLeave={(e) => (e.currentTarget.style.color = "")}
+>
+  {item.name}
+</NavLink>
       </li>
     ))}
   </ul>

@@ -1,22 +1,11 @@
 // src/data/treatmentsData.js
-import {
-  Bone,
-  PersonStanding,
-  Accessibility,
-  Hand,
-  Dumbbell,
-  ShieldPlus,
-  Spline,
-  Stethoscope,
-} from "lucide-react";
+import pic1 from './../assets/debasi.jpeg'
 
 export const treatments = [
   {
     slug: "joint-replacement",
     name: "Joint Replacement Surgery",
-    icon: Bone,
-    image:
-      "https://images.unsplash.com/photo-1579154491781-5e199df316aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGpvaW50JTIwcmVwbGFjZW1lbnQlMjBzdXJnZXJ5fGVufDB8fDB8fHww",
+    image: pic1,
     shortDescription: "Advanced knee, hip and shoulder replacement procedures.",
     overview:
       "Joint replacement surgery removes damaged or worn joint surfaces and replaces them with durable artificial implants, restoring pain-free movement for patients with severe arthritis or joint degeneration.",
@@ -37,7 +26,6 @@ Modern joint implants typically last 15 to 25 years, and most patients report si
   {
     slug: "knee-pain",
     name: "Knee Pain Treatment",
-    icon: PersonStanding,
     image:
       "https://media.istockphoto.com/id/493237162/photo/traumatology-orthopedic-surgery-knee-arthroscopy-drip.webp?a=1&b=1&s=612x612&w=0&k=20&c=3eCCF6oDBKj7GpSzCTwenqTLDc_dHIh1NDQ6zYpYwnk=",
     shortDescription: "Complete diagnosis and treatment for knee conditions.",
@@ -60,7 +48,6 @@ Long-term knee health is supported by weight management, appropriate footwear, a
   {
     slug: "hip-replacement",
     name: "Hip Replacement",
-    icon: Accessibility,
     image:
       "https://media.istockphoto.com/id/121026023/photo/orthopaedic-surgeon-consulting-pelvic-x-rays-for-a-hip-replacement.webp?a=1&b=1&s=612x612&w=0&k=20&c=rwfOW1PUIMVLOv8lNf_E1GVN8y1RwflCcE97E57kVOo=",
     shortDescription: "Modern hip replacement with faster recovery.",
@@ -83,7 +70,6 @@ Contemporary hip implants are built to last 20+ years for the majority of patien
   {
     slug: "arthritis",
     name: "Arthritis Treatment",
-    icon: Hand,
     image:
       "https://images.unsplash.com/photo-1597764690523-15bea4c581c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG9ydGhvcGVkaWMlMjBzdXJnZXJ5fGVufDB8fDB8fHww",
     shortDescription: "Personalized arthritis management solutions.",
@@ -106,7 +92,6 @@ Regular low-impact exercise, joint protection techniques, and consistent follow-
   {
     slug: "sports-injury",
     name: "Sports Injury Treatment",
-    icon: Dumbbell,
     image:
       "https://media.istockphoto.com/id/1497548487/photo/shoulder-muscle-pain-and-injury.webp?a=1&b=1&s=612x612&w=0&k=20&c=gCcxfhJ6E6S3uNRCR2Gf6sk-m5SexkRcjvyTcAlmO54=",
     shortDescription: "Treatment for ligament and tendon injuries.",
@@ -129,7 +114,6 @@ Neuromuscular training, proper warm-ups, and strength balance between muscle gro
   {
     slug: "fracture",
     name: "Fracture Management",
-    icon: ShieldPlus,
     image:
       "https://plus.unsplash.com/premium_photo-1726880466207-d85def51628f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fEZyYWN0dXJlJTIwTWFuYWdlbWVudCUyMG9ydGhvcGVkaWN8ZW58MHx8MHx8fDA%3D",
     shortDescription: "Advanced fracture fixation and healing care.",
@@ -152,7 +136,6 @@ Regular imaging and clinical checks ensure proper healing and allow early identi
   {
     slug: "spine",
     name: "Spine & Back Pain Care",
-    icon: Spline,
     image:
       "https://images.unsplash.com/photo-1650897492414-8661563845a7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8U3BpbmUlMjAlMjYlMjBCYWNrJTIwUGFpbiUyMENhcmV8ZW58MHx8MHx8fDA%3D",
     shortDescription: "Comprehensive spine and back pain treatment.",
@@ -175,7 +158,6 @@ Ergonomic adjustments, regular movement, and core strength are central to preven
   {
     slug: "consultation",
     name: "Orthopedic Consultation",
-    icon: Stethoscope,
     image:
       "https://images.unsplash.com/photo-1758691461957-474a7686e388?auto=format&fit=crop&w=1200&q=80",
     shortDescription: "Expert orthopedic assessment and guidance.",

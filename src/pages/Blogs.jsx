@@ -53,7 +53,7 @@ If you're noticing two or more of these signs consistently over several weeks, i
   {
     slug: "hip-replacement-before-after",
     image:
-      "https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?auto=format&fit=crop&w=1200&q=80",
+      "https://media.istockphoto.com/id/157425370/photo/x-ray-of-total-hip-arthroplasty.webp?a=1&b=1&s=612x612&w=0&k=20&c=4qWZUIWbs4o-Uu1NUAo4aFjLdY83TvRhRBdWwab9URU=",
     category: "Hip Replacement",
     date: "June 24, 2026",
     readTime: "6 min read",
@@ -92,7 +92,7 @@ Modern hip implants are built to last 20 years or more for the majority of patie
   {
     slug: "posture-fixes-back-pain",
     image:
-      "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80",
+      "https://media.istockphoto.com/id/686774058/photo/doctor-reading-the-x-ray-in-the-office.webp?a=1&b=1&s=612x612&w=0&k=20&c=Efkui7sn-nQv_HlZWtE5SzTI0f_ZueC0Aeovj-NNdhY=",
     category: "Spine Care",
     date: "June 15, 2026",
     readTime: "4 min read",
@@ -129,7 +129,7 @@ None of these changes require special equipment or a big time commitment — jus
   {
     slug: "sports-injury-ligament",
     image:
-      "https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=1200&q=80",
+      "https://media.istockphoto.com/id/1497548487/photo/shoulder-muscle-pain-and-injury.webp?a=1&b=1&s=612x612&w=0&k=20&c=gCcxfhJ6E6S3uNRCR2Gf6sk-m5SexkRcjvyTcAlmO54=",
     category: "Sports Injury",
     date: "June 5, 2026",
     readTime: "5 min read",

@@ -1,7 +1,6 @@
 import { useParams, Link } from "react-router";
 import { ArrowLeft, ArrowRight, CalendarDays } from "lucide-react";
 import { treatments } from "./treatmentsData";
-// import { treatments } from "."; // adjust path to match your project
 
 const pistaGradient = "linear-gradient(to right,#6A9E4F,#93C572)";
 
@@ -20,7 +19,6 @@ const TreatmentDetail = () => {
     );
   }
 
-  const Icon = treatment.icon;
   const related = treatments.filter((t) => t.slug !== treatment.slug).slice(0, 3);
   const blocks = treatment.details.split("\n\n").filter(Boolean);
 
@@ -40,13 +38,6 @@ const TreatmentDetail = () => {
             <ArrowLeft size={16} />
             Back to Treatments
           </Link>
-
-          <div
-            className="w-16 h-16 rounded-2xl flex items-center justify-center text-white shadow-xl mb-5"
-            style={{ background: pistaGradient }}
-          >
-            {Icon && <Icon size={28} />}
-          </div>
 
           <h1 className="text-3xl md:text-5xl font-black text-slate-900 leading-tight mb-4">
             {treatment.name}
@@ -101,33 +92,24 @@ const TreatmentDetail = () => {
             <h3 className="text-2xl font-black text-slate-900 mb-8">Related Treatments</h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {related.map((r) => {
-                const RIcon = r.icon;
-                return (
-                  <Link
-                    key={r.slug}
-                    to={`/treatments/${r.slug}`}
-                    className="group flex items-center gap-4 rounded-2xl p-4 bg-white shadow-sm hover:shadow-lg transition-all duration-300"
-                    style={{ border: "1px solid #C5E1AE" }}
-                  >
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow shrink-0"
-                      style={{ background: pistaGradient }}
-                    >
-                      {RIcon && <RIcon size={20} />}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h4 className="font-semibold text-slate-800 text-sm group-hover:text-[#3D6B2C] transition-colors truncate">
-                        {r.name}
-                      </h4>
-                      <span className="flex items-center gap-1 text-xs font-semibold mt-1" style={{ color: "#3D6B2C" }}>
-                        View details
-                        <ArrowRight size={11} className="transition-transform group-hover:translate-x-1" />
-                      </span>
-                    </div>
-                  </Link>
-                );
-              })}
+              {related.map((r) => (
+                <Link
+                  key={r.slug}
+                  to={`/treatments/${r.slug}`}
+                  className="group flex items-center gap-4 rounded-2xl p-4 bg-white shadow-sm hover:shadow-lg transition-all duration-300"
+                  style={{ border: "1px solid #C5E1AE" }}
+                >
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-semibold text-slate-800 text-sm group-hover:text-[#3D6B2C] transition-colors truncate">
+                      {r.name}
+                    </h4>
+                    <span className="flex items-center gap-1 text-xs font-semibold mt-1" style={{ color: "#3D6B2C" }}>
+                      View details
+                      <ArrowRight size={11} className="transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         )}
