@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
 import doctor from "../assets/doctor icon.jpg";
 
+// ── Pista palette ──────────────────────────────────────────
+// Main:    #93C572
+// Dark:    #6A9E4F
+// Deeper:  #3D6B2C
+// Tint:    #EAF4E1
+// Border:  #C5E1AE
+// ──────────────────────────────────────────────────────────
+
 const Loader = () => {
   return (
     <div className="fixed inset-0 bg-white flex items-center justify-center z-[9999]">
@@ -10,15 +18,10 @@ const Loader = () => {
 
         {/* Glow */}
 
-        <div className="
-        absolute
-        w-52
-        h-52
-        rounded-full
-        bg-purple-500/30
-        blur-3xl
-        animate-pulse
-        " />
+        <div
+          className="absolute w-52 h-52 rounded-full blur-3xl animate-pulse"
+          style={{ background: "rgba(147,197,114,0.3)" }}
+        />
 
 
 
@@ -30,17 +33,8 @@ const Loader = () => {
 
           alt="Doctor"
 
-          className="
-          w-40
-          h-40
-          rounded-full
-          object-cover
-          border-4
-          border-purple-600
-          shadow-2xl
-          relative
-          z-10
-          "
+          className="w-40 h-40 rounded-full object-cover border-4 shadow-2xl relative z-10"
+          style={{ borderColor: "#6A9E4F" }}
 
           animate={{
 
@@ -48,11 +42,11 @@ const Loader = () => {
 
             boxShadow:[
 
-              "0 0 20px rgba(147,51,234,.4)",
+              "0 0 20px rgba(106,158,79,.4)",
 
-              "0 0 60px rgba(99,102,241,.8)",
+              "0 0 60px rgba(147,197,114,.8)",
 
-              "0 0 20px rgba(147,51,234,.4)",
+              "0 0 20px rgba(106,158,79,.4)",
 
             ],
 
@@ -76,12 +70,7 @@ const Loader = () => {
 
         <motion.h2
 
-          className="
-          mt-8
-          text-2xl
-          font-bold
-          text-slate-800
-          "
+          className="mt-8 text-2xl font-bold text-slate-800"
 
           animate={{
             opacity:[0.4,1,0.4]
@@ -117,14 +106,8 @@ const Loader = () => {
 
               key={dot}
 
-              className="
-              w-3
-              h-3
-              rounded-full
-              bg-gradient-to-r
-              from-purple-600
-              to-indigo-600
-              "
+              className="w-3 h-3 rounded-full"
+              style={{ background: "linear-gradient(to right, #6A9E4F, #3D6B2C)" }}
 
               animate={{
 

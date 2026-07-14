@@ -12,6 +12,14 @@ import { useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
 
+// ── Pista palette ──────────────────────────────────────────
+// Main:    #93C572
+// Dark:    #6A9E4F
+// Deeper:  #3D6B2C
+// Tint:    #EAF4E1
+// Border:  #C5E1AE
+// ──────────────────────────────────────────────────────────
+
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -52,16 +60,28 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-white flex items-center justify-center px-4 py-8">
       <div className="w-full max-w-6xl bg-white rounded-[32px] shadow-2xl overflow-hidden grid lg:grid-cols-2">
-        
-        {/* LEFT SIDE */}
-        <div className="hidden lg:flex flex-col justify-center bg-gradient-to-br from-purple-800 via-purple-900 to-black p-12 relative overflow-hidden">
-          
-          <div className="absolute top-0 left-0 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
 
-          <div className="absolute bottom-0 right-0 w-72 h-72 bg-fuchsia-500/20 rounded-full blur-3xl"></div>
+        {/* LEFT SIDE */}
+        <div
+          className="hidden lg:flex flex-col justify-center p-12 relative overflow-hidden"
+          style={{ background: "linear-gradient(to bottom right, #3D6B2C, #1a2e12, #000000)" }}
+        >
+
+          <div
+            className="absolute top-0 left-0 w-72 h-72 rounded-full blur-3xl"
+            style={{ background: "rgba(147,197,114,0.2)" }}
+          ></div>
+
+          <div
+            className="absolute bottom-0 right-0 w-72 h-72 rounded-full blur-3xl"
+            style={{ background: "rgba(106,158,79,0.2)" }}
+          ></div>
 
           <div className="relative z-10">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-purple-200 backdrop-blur border border-white/10">
+            <span
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur border border-white/10"
+              style={{ color: "#C5E1AE" }}
+            >
               <FaShieldAlt />
               Secure Medical Portal
             </span>
@@ -69,7 +89,7 @@ const Login = () => {
             <h1 className="mt-8 text-5xl font-bold text-white leading-tight">
               Welcome Back,
               <br />
-              <span className="text-purple-300">Doctor</span>
+              <span style={{ color: "#93C572" }}>Doctor</span>
             </h1>
 
             <p className="mt-6 text-slate-200 text-lg leading-relaxed">
@@ -79,7 +99,10 @@ const Login = () => {
             </p>
 
             <div className="mt-12 space-y-5">
-              <div className="bg-white/10 backdrop-blur-md border border-purple-500/20 rounded-2xl p-5">
+              <div
+                className="bg-white/10 backdrop-blur-md rounded-2xl p-5"
+                style={{ border: "1px solid rgba(147,197,114,0.2)" }}
+              >
                 <h3 className="text-white font-semibold text-lg">
                   Patient Management
                 </h3>
@@ -89,7 +112,10 @@ const Login = () => {
                 </p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-md border border-purple-500/20 rounded-2xl p-5">
+              <div
+                className="bg-white/10 backdrop-blur-md rounded-2xl p-5"
+                style={{ border: "1px solid rgba(147,197,114,0.2)" }}
+              >
                 <h3 className="text-white font-semibold text-lg">
                   Appointment Scheduling
                 </h3>
@@ -108,7 +134,10 @@ const Login = () => {
 
             {/* LOGO */}
             <div className="flex justify-center">
-              <div className="w-24 h-24 rounded-3xl bg-gradient-to-r from-purple-600 to-fuchsia-600 flex items-center justify-center shadow-lg">
+              <div
+                className="w-24 h-24 rounded-3xl flex items-center justify-center shadow-lg"
+                style={{ background: "linear-gradient(to right, #6A9E4F, #93C572)" }}
+              >
                 <FaUserMd className="text-white text-4xl" />
               </div>
             </div>
@@ -140,7 +169,15 @@ const Login = () => {
                     {...register("email", {
                       required: "Email is required",
                     })}
-                    className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none transition"
+                    className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 outline-none transition"
+                    onFocus={(e) => {
+                      e.target.style.borderColor = "#6A9E4F";
+                      e.target.style.boxShadow = "0 0 0 4px rgba(147,197,114,0.25)";
+                    }}
+                    onBlur={(e) => {
+                      e.target.style.borderColor = "";
+                      e.target.style.boxShadow = "";
+                    }}
                   />
                 </div>
 
@@ -171,7 +208,15 @@ const Login = () => {
                           "Password must be at least 6 characters",
                       },
                     })}
-                    className="w-full pl-12 pr-12 py-4 rounded-2xl border border-slate-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none transition"
+                    className="w-full pl-12 pr-12 py-4 rounded-2xl border border-slate-200 outline-none transition"
+                    onFocus={(e) => {
+                      e.target.style.borderColor = "#6A9E4F";
+                      e.target.style.boxShadow = "0 0 0 4px rgba(147,197,114,0.25)";
+                    }}
+                    onBlur={(e) => {
+                      e.target.style.borderColor = "";
+                      e.target.style.boxShadow = "";
+                    }}
                   />
 
                   <button
@@ -201,14 +246,17 @@ const Login = () => {
                 <label className="flex items-center gap-2 text-sm text-slate-600">
                   <input
                     type="checkbox"
-                    className="accent-purple-600"
+                    style={{ accentColor: "#6A9E4F" }}
                   />
                   Remember me
                 </label>
 
                 <button
                   type="button"
-                  className="text-purple-600 hover:text-purple-700 text-sm font-medium"
+                  className="text-sm font-medium"
+                  style={{ color: "#6A9E4F" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#3D6B2C")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#6A9E4F")}
                 >
                   Forgot Password?
                 </button>
@@ -218,7 +266,13 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-700 via-purple-600 to-fuchsia-600 text-white font-semibold text-lg shadow-[0_10px_40px_rgba(147,51,234,0.35)] hover:shadow-[0_15px_50px_rgba(147,51,234,0.45)] hover:scale-[1.02] transition-all duration-300"
+                className="w-full py-4 rounded-2xl text-white font-semibold text-lg hover:scale-[1.02] transition-all duration-300"
+                style={{
+                  background: "linear-gradient(to right, #3D6B2C, #6A9E4F, #93C572)",
+                  boxShadow: "0 10px 40px rgba(106,158,79,0.35)",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 15px 50px rgba(106,158,79,0.45)")}
+                onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "0 10px 40px rgba(106,158,79,0.35)")}
               >
                 {isSubmitting ? "Signing In..." : "Login"}
               </button>

@@ -8,6 +8,14 @@ import {
   FaUser,
 } from "react-icons/fa";
 
+// ── Pista palette ──────────────────────────────────────────
+// Main:    #93C572
+// Dark:    #6A9E4F
+// Deeper:  #3D6B2C
+// Tint:    #EAF4E1
+// Border:  #C5E1AE
+// ──────────────────────────────────────────────────────────
+
 const Contacts = () => {
   const [search, setSearch] = useState("");
 
@@ -37,7 +45,10 @@ const Contacts = () => {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-[500px]">
-        <span className="loading loading-spinner loading-lg text-purple-600"></span>
+        <span
+          className="loading loading-spinner loading-lg"
+          style={{ color: "#6A9E4F" }}
+        ></span>
       </div>
     );
   }
@@ -64,13 +75,8 @@ const Contacts = () => {
         <div className="relative w-full lg:w-96">
 
           <FaSearch
-            className="
-            absolute
-            left-4
-            top-1/2
-            -translate-y-1/2
-            text-purple-500
-          "
+            className="absolute left-4 top-1/2 -translate-y-1/2"
+            style={{ color: "#6A9E4F" }}
           />
 
           <input
@@ -78,21 +84,16 @@ const Contacts = () => {
             placeholder="Search by name or email..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="
-            w-full
-            pl-12
-            pr-4
-            py-4
-            rounded-2xl
-            border
-            border-purple-100
-            bg-white
-            shadow-md
-            outline-none
-            focus:ring-4
-            focus:ring-purple-100
-            focus:border-purple-500
-          "
+            className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white shadow-md outline-none transition"
+            style={{ border: "1px solid #C5E1AE" }}
+            onFocus={(e) => {
+              e.target.style.borderColor = "#6A9E4F";
+              e.target.style.boxShadow = "0 0 0 4px rgba(147,197,114,0.25)";
+            }}
+            onBlur={(e) => {
+              e.target.style.borderColor = "#C5E1AE";
+              e.target.style.boxShadow = "";
+            }}
           />
 
         </div>
@@ -104,16 +105,8 @@ const Contacts = () => {
       <div className="grid md:grid-cols-3 gap-5">
 
         <div
-          className="
-          bg-gradient-to-r
-          from-purple-700
-          via-purple-600
-          to-indigo-600
-          rounded-3xl
-          p-6
-          text-white
-          shadow-xl
-        "
+          className="rounded-3xl p-6 text-white shadow-xl"
+          style={{ background: "linear-gradient(to right, #3D6B2C, #4f7d38, #6A9E4F)" }}
         >
           <p className="opacity-80">
             Total Messages
@@ -125,15 +118,8 @@ const Contacts = () => {
         </div>
 
         <div
-          className="
-          bg-gradient-to-r
-          from-indigo-600
-          to-purple-700
-          rounded-3xl
-          p-6
-          text-white
-          shadow-xl
-        "
+          className="rounded-3xl p-6 text-white shadow-xl"
+          style={{ background: "linear-gradient(to right, #6A9E4F, #3D6B2C)" }}
         >
           <p className="opacity-80">
             Search Results
@@ -145,15 +131,8 @@ const Contacts = () => {
         </div>
 
         <div
-          className="
-          bg-gradient-to-r
-          from-violet-600
-          to-fuchsia-600
-          rounded-3xl
-          p-6
-          text-white
-          shadow-xl
-        "
+          className="rounded-3xl p-6 text-white shadow-xl"
+          style={{ background: "linear-gradient(to right, #7CAE5C, #93C572)" }}
         >
           <p className="opacity-80">
             New Inquiries
@@ -165,17 +144,12 @@ const Contacts = () => {
         </div>
 
       </div>
-            {/* TABLE */}
+
+      {/* TABLE */}
 
       <div
-        className="
-        overflow-hidden
-        rounded-3xl
-        bg-white
-        border
-        border-purple-100
-        shadow-xl
-      "
+        className="overflow-hidden rounded-3xl bg-white shadow-xl"
+        style={{ border: "1px solid #C5E1AE" }}
       >
         <div className="overflow-x-auto">
 
@@ -184,13 +158,8 @@ const Contacts = () => {
             <thead>
 
               <tr
-                className="
-                bg-gradient-to-r
-                from-purple-700
-                via-purple-600
-                to-indigo-600
-                text-white
-              "
+                className="text-white"
+                style={{ background: "linear-gradient(to right, #3D6B2C, #4f7d38, #6A9E4F)" }}
               >
                 <th className="px-5 py-4 text-left">#</th>
                 <th className="px-5 py-4 text-left">Patient</th>
@@ -208,12 +177,10 @@ const Contacts = () => {
 
                 <tr
                   key={contact._id}
-                  className="
-                  border-b
-                  border-purple-50
-                  hover:bg-purple-50
-                  transition-all
-                "
+                  className="border-b transition-all"
+                  style={{ borderColor: "#EAF4E1" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = "#EAF4E1")}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = "")}
                 >
 
                   <td className="px-5 py-5 font-semibold text-slate-700">
@@ -225,17 +192,10 @@ const Contacts = () => {
                     <div className="flex items-center gap-3">
 
                       <div
-                        className="
-                        w-11
-                        h-11
-                        rounded-full
-                        bg-purple-100
-                        flex
-                        items-center
-                        justify-center
-                      "
+                        className="w-11 h-11 rounded-full flex items-center justify-center"
+                        style={{ background: "#EAF4E1" }}
                       >
-                        <FaUser className="text-purple-600" />
+                        <FaUser style={{ color: "#6A9E4F" }} />
                       </div>
 
                       <div>
@@ -251,7 +211,7 @@ const Contacts = () => {
                   <td className="px-5 py-5">
 
                     <div className="flex items-center gap-2 text-slate-600">
-                      <FaEnvelope className="text-purple-600" />
+                      <FaEnvelope style={{ color: "#6A9E4F" }} />
                       {contact.email}
                     </div>
 
@@ -269,17 +229,8 @@ const Contacts = () => {
                   <td className="px-5 py-5">
 
                     <span
-                      className="
-                      inline-flex
-                      items-center
-                      px-3
-                      py-1
-                      rounded-full
-                      bg-purple-100
-                      text-purple-700
-                      text-sm
-                      font-medium
-                    "
+                      className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium"
+                      style={{ background: "#EAF4E1", color: "#3D6B2C" }}
                     >
                       {contact.subject}
                     </span>
@@ -309,19 +260,10 @@ const Contacts = () => {
           <div className="py-20 text-center">
 
             <div
-              className="
-              w-20
-              h-20
-              mx-auto
-              rounded-full
-              bg-purple-100
-              flex
-              items-center
-              justify-center
-              mb-5
-            "
+              className="w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-5"
+              style={{ background: "#EAF4E1" }}
             >
-              <FaEnvelope className="text-3xl text-purple-600" />
+              <FaEnvelope className="text-3xl" style={{ color: "#6A9E4F" }} />
             </div>
 
             <h3 className="text-xl font-bold text-slate-700">

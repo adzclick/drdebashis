@@ -8,6 +8,14 @@ import {
   Mail,
 } from "lucide-react";
 
+// ── Pista palette ──────────────────────────────────────────
+// Main:    #93C572
+// Dark:    #6A9E4F
+// Deeper:  #3D6B2C
+// Tint:    #EAF4E1
+// Border:  #C5E1AE
+// ──────────────────────────────────────────────────────────
+
 const Appointments = () => {
   const {
     data: appointments = [],
@@ -43,17 +51,26 @@ const Appointments = () => {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-[400px]">
-        <span className="loading loading-spinner loading-lg text-pink-600"></span>
+        <span
+          className="loading loading-spinner loading-lg"
+          style={{ color: "#6A9E4F" }}
+        ></span>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen rounded-3xl bg-gradient-to-br from-purple-50 via-pink-50 to-fuchsia-50 p-6">
+    <div
+      className="min-h-screen rounded-3xl p-6"
+      style={{ background: "linear-gradient(to bottom right, #EAF4E1, #f8fafc, #EAF4E1)" }}
+    >
 
       {/* HEADER */}
       <div className="mb-8">
-        <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-700 via-fuchsia-600 to-pink-600 bg-clip-text text-transparent">
+        <h2
+          className="text-3xl font-bold bg-clip-text text-transparent"
+          style={{ backgroundImage: "linear-gradient(to right, #3D6B2C, #6A9E4F, #93C572)" }}
+        >
           Appointment Requests
         </h2>
 
@@ -94,25 +111,14 @@ const Appointments = () => {
 
       {/* TABLE */}
       <div
-        className="
-        overflow-x-auto
-        rounded-3xl
-        bg-white
-        shadow-2xl
-        border
-        border-pink-100
-      "
+        className="overflow-x-auto rounded-3xl bg-white shadow-2xl"
+        style={{ border: "1px solid #C5E1AE" }}
       >
         <table className="w-full">
           <thead>
             <tr
-              className="
-              bg-gradient-to-r
-              from-purple-900
-              via-fuchsia-800
-              to-pink-700
-              text-white
-            "
+              className="text-white"
+              style={{ background: "linear-gradient(to right, #3D6B2C, #6A9E4F, #93C572)" }}
             >
               <th className="px-5 py-4 text-left">
                 Patient
@@ -144,12 +150,9 @@ const Appointments = () => {
             {appointments.map((appointment) => (
               <tr
                 key={appointment._id}
-                className="
-                border-b
-                hover:bg-pink-50
-                transition-all
-                duration-300
-              "
+                className="border-b transition-all duration-300"
+                onMouseEnter={(e) => (e.currentTarget.style.background = "#EAF4E1")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "")}
               >
                 {/* PATIENT */}
                 <td className="px-5 py-5">
@@ -205,7 +208,7 @@ const Appointments = () => {
 
                 {/* ACTION */}
                 <td className="px-5 py-5">
-                                    {(appointment.status === "pending" ||
+                  {(appointment.status === "pending" ||
                     !appointment.status) ? (
                     <div className="flex justify-center gap-2">
 
@@ -216,19 +219,8 @@ const Appointments = () => {
                             "confirmed"
                           )
                         }
-                        className="
-                        px-4
-                        py-2
-                        rounded-xl
-                        bg-gradient-to-r
-                        from-purple-700
-                        via-fuchsia-600
-                        to-pink-600
-                        text-white
-                        font-medium
-                        hover:opacity-90
-                        transition-all
-                      "
+                        className="px-4 py-2 rounded-xl text-white font-medium hover:opacity-90 transition-all"
+                        style={{ background: "linear-gradient(to right, #3D6B2C, #6A9E4F, #93C572)" }}
                       >
                         Confirm
                       </button>
@@ -240,18 +232,7 @@ const Appointments = () => {
                             "rejected"
                           )
                         }
-                        className="
-                        px-4
-                        py-2
-                        rounded-xl
-                        bg-gradient-to-r
-                        from-pink-600
-                        to-rose-600
-                        text-white
-                        font-medium
-                        hover:opacity-90
-                        transition-all
-                      "
+                        className="px-4 py-2 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 text-white font-medium hover:opacity-90 transition-all"
                       >
                         Reject
                       </button>
@@ -261,19 +242,7 @@ const Appointments = () => {
                     "confirmed" ? (
                     <div className="flex justify-center">
 
-                      <span
-                        className="
-                        inline-flex
-                        items-center
-                        gap-2
-                        rounded-full
-                        bg-green-100
-                        px-4
-                        py-2
-                        font-medium
-                        text-green-700
-                      "
-                      >
+                      <span className="inline-flex items-center gap-2 rounded-full bg-green-100 px-4 py-2 font-medium text-green-700">
                         <CheckCircle size={16} />
                         Confirmed
                       </span>
@@ -282,19 +251,7 @@ const Appointments = () => {
                   ) : (
                     <div className="flex justify-center">
 
-                      <span
-                        className="
-                        inline-flex
-                        items-center
-                        gap-2
-                        rounded-full
-                        bg-red-100
-                        px-4
-                        py-2
-                        font-medium
-                        text-red-700
-                      "
-                      >
+                      <span className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 font-medium text-red-700">
                         <XCircle size={16} />
                         Rejected
                       </span>
@@ -309,11 +266,7 @@ const Appointments = () => {
               <tr>
                 <td
                   colSpan={6}
-                  className="
-                  py-10
-                  text-center
-                  text-slate-500
-                "
+                  className="py-10 text-center text-slate-500"
                 >
                   No Appointments Found
                 </td>
@@ -335,32 +288,15 @@ const StatCard = ({
 }) => {
 
   const colors = {
-
-    purple:
-      "from-purple-900 via-fuchsia-800 to-pink-700",
-
-    green:
-      "from-purple-800 via-fuchsia-700 to-pink-600",
-
-    yellow:
-      "from-purple-700 via-fuchsia-600 to-pink-500",
-
+    purple: "linear-gradient(to right, #3D6B2C, #6A9E4F, #93C572)",
+    green: "linear-gradient(to right, #2f5421, #6A9E4F, #93C572)",
+    yellow: "linear-gradient(to right, #4a7a36, #7CAE5C, #A8D483)",
   };
 
   return (
     <div
-      className={`
-      bg-gradient-to-r
-      ${colors[color]}
-      text-white
-      rounded-3xl
-      p-6
-      shadow-2xl
-      hover:-translate-y-1
-      hover:scale-[1.02]
-      transition-all
-      duration-300
-    `}
+      className="text-white rounded-3xl p-6 shadow-2xl hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300"
+      style={{ background: colors[color] }}
     >
       <p className="text-sm opacity-80">
         {title}

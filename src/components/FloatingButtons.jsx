@@ -3,6 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
+// ── Pista palette ──────────────────────────────────────────
+// Main:    #93C572
+// Dark:    #6A9E4F
+// Deeper:  #3D6B2C
+// Tint:    #EAF4E1
+// Border:  #C5E1AE
+// ──────────────────────────────────────────────────────────
+
 const FloatingButtons = () => {
 
   const [show,setShow]=useState(false);
@@ -44,11 +52,11 @@ z-50
 ">
 
 
-{/* WHATSAPP BUTTON */}
+{/* WHATSAPP BUTTON — kept its own brand green */}
 
 <motion.a
 
-href="https://wa.me/919836012345"
+href="https://wa.me/9147395588"
 
 target="_blank"
 
@@ -145,7 +153,7 @@ drop-shadow-lg
 
 
 
-{/* SCROLL TOP BUTTON */}
+{/* SCROLL TOP BUTTON — recolored to pista */}
 
 
 <AnimatePresence>
@@ -188,7 +196,7 @@ whileHover={{
 scale:1.2,
 
 boxShadow:
-"0 0 25px rgba(147,51,234,0.7)",
+"0 0 25px rgba(106,158,79,0.7)",
 
 }}
 
@@ -204,10 +212,6 @@ className="
 w-16
 h-16
 rounded-full
-bg-gradient-to-br
-from-purple-600
-via-purple-700
-to-indigo-700
 text-white
 flex
 items-center
@@ -216,6 +220,10 @@ shadow-2xl
 relative
 "
 
+style={{
+  background: "linear-gradient(to bottom right, #6A9E4F, #4f7d38, #3D6B2C)",
+}}
+
 >
 
 
@@ -223,16 +231,18 @@ relative
 
 
 
-{/* Purple Glow Aura */}
+{/* Pista Glow Aura */}
 
-<span className="
+<span
+className="
 absolute
 inset-0
 rounded-full
-bg-purple-400/30
 blur-2xl
 animate-pulse
-"/>
+"
+style={{ background: "rgba(147,197,114,0.3)" }}
+/>
 
 
 

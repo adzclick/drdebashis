@@ -19,6 +19,9 @@ import PrivateRoutes from "../Router/PrivateRoutes";
 
 import Appointments from "../Dashboard/Appointments";
 import Contacts from "../Dashboard/Contacts";
+import Blogs from "../pages/Blogs";
+import BlogDetail from "../pages/Blogdetails";
+import TreatmentDetail from "../components/TreatmentDetail";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +64,18 @@ export const router = createBrowserRouter([
         path: "/login",
         Component: Login,
       },
+      {
+        path:'/blogs',
+        Component:Blogs
+      },
+      {
+  path: "/Blogs/:slug",
+  element: <BlogDetail />,
+},
+{
+  path: "/treatments/:slug",
+  Component: TreatmentDetail,
+},
     ],
   },
 
